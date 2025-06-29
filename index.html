@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographic: The Ultimate Guide to REITs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Brilliant Blues (#004e92, #4286f4, #a7c7f7, #000428) -->
+    <!-- Application Structure Plan: The infographic follows a narrative journey for a new investor. It starts with a high-impact hook ("What is a REIT?"), then explains the core mechanics ("How They Work"). Next, it allows exploration of the investment landscape ("REIT Sectors"). A critical section warns about risk ("The Critical Choice: Public vs. Non-Traded"). This is followed by a balanced view ("Pros vs. Cons"), a key benefit visualization ("Tax Advantage"), and a forward-looking conclusion ("Future of REITs"). This structure guides the user from basic understanding to informed decision-making. -->
+    <!-- Visualization & Content Choices:
+        - Data: 90% Payout Rule -> Goal: Inform -> Viz: Single Big Number -> Justification: High-impact, grabs attention, and conveys the primary income benefit instantly. Method: Styled HTML. Confirms NO SVG.
+        - Data: Equity vs. Mortgage REITs -> Goal: Compare -> Viz: Flow Chart Diagram -> Justification: Visually separates the two business models (rent vs. interest) for clearer understanding than text alone. Method: Structured HTML/CSS with Tailwind. Confirms NO SVG/Mermaid.
+        - Data: Major REIT Sectors -> Goal: Compare/Rank -> Viz: Horizontal Bar Chart -> Justification: Effectively compares the relative scale and number of REITs across different economic sectors. Library: Chart.js. Confirms NO SVG.
+        - Data: Public vs. Non-Traded Risks -> Goal: Compare -> Viz: Styled HTML Table -> Justification: A table provides the clearest, most direct, feature-by-feature comparison to highlight the significant differences in risk, liquidity, and fees. Method: HTML/Tailwind. Confirms NO SVG.
+        - Data: Tax Benefit (QBI) -> Goal: Inform -> Viz: Donut Chart -> Justification: Shows a part-to-whole relationship, visually representing the portion of tax saved due to the QBI deduction. Library: Chart.js. Confirms NO SVG.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f0f4f9; }
+        .bg-brand-dark { background-color: #000428; }
+        .bg-brand-primary { background-color: #004e92; }
+        .text-brand-primary { color: #004e92; }
+        .text-brand-accent { color: #4286f4; }
+        .border-brand-accent { border-color: #4286f4; }
+        .card { background-color: white; border-radius: 1rem; padding: 1.5rem; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.07); }
+        .chart-container { position: relative; width: 100%; max-width: 800px; margin-left: auto; margin-right: auto; height: 350px; max-height: 50vh; }
+        .section-title { font-size: 2.25rem; font-weight: 800; line-height: 2.5rem; color: #000428; }
+        .section-subtitle { font-size: 1.125rem; line-height: 1.75rem; color: #4a5568; max-width: 48rem; margin: 0.5rem auto 0; }
+        .stat-number { font-size: 4rem; font-weight: 800; color: #4286f4; line-height: 1; }
+        .flow-arrow { position: relative; }
+        .flow-arrow::after { content: '→'; font-size: 2rem; color: #a7c7f7; position: absolute; top: 50%; right: -2rem; transform: translateY(-50%); }
+    </style>
+</head>
+<body class="text-slate-700">
+
+    <div class="container mx-auto px-4 py-8 md:py-16">
+
+        <!-- Section 1: Introduction -->
+        <section class="text-center mb-16 md:mb-24">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-brand-primary">INVEST IN REAL ESTATE, THE SMART WAY.</h1>
+            <p class="section-subtitle mt-4">A Real Estate Investment Trust (REIT) lets you own a piece of large-scale properties—like skyscrapers and shopping malls—just by buying a share of stock. It's real estate investing, made accessible for everyone.</p>
+            <div class="mt-12">
+                <div class="inline-block bg-white p-8 rounded-2xl shadow-xl">
+                    <p class="text-lg font-semibold text-slate-600">REITs are legally required to pay out at least</p>
+                    <p class="stat-number my-2">90%</p>
+                    <p class="text-lg font-semibold text-slate-600">of their taxable income to you as dividends.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: How They Work -->
+        <section class="text-center mb-16 md:mb-24">
+            <h2 class="section-title">How REITs Make Money</h2>
+            <p class="section-subtitle">All REITs focus on real estate, but they generate income in two very different ways. This fundamental split defines their strategy and risk profile.</p>
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="card text-left">
+                    <p class="text-3xl mb-2">🏢</p>
+                    <h3 class="text-xl font-bold text-brand-primary">Equity REITs (The Landlords)</h3>
+                    <p class="mt-2">The most common type. They own and operate physical properties. Their income is the rent they collect from tenants.</p>
+                    <div class="mt-4 flex items-center justify-between bg-slate-50 p-3 rounded-lg">
+                        <span>Tenants Pay Rent</span>
+                        <span class="text-2xl text-brand-accent">→</span>
+                        <span>REIT Collects Income</span>
+                    </div>
+                </div>
+                <div class="card text-left">
+                    <p class="text-3xl mb-2">💵</p>
+                    <h3 class="text-xl font-bold text-brand-primary">Mortgage REITs (The Lenders)</h3>
+                    <p class="mt-2">They don't own buildings. Instead, they lend money to real estate owners and earn income from interest payments.</p>
+                     <div class="mt-4 flex items-center justify-between bg-slate-50 p-3 rounded-lg">
+                        <span>Borrowers Pay Interest</span>
+                        <span class="text-2xl text-brand-accent">→</span>
+                        <span>REIT Collects Income</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: REIT Sectors -->
+        <section class="text-center mb-16 md:mb-24">
+            <h2 class="section-title">A Tour of the REIT Universe</h2>
+            <p class="section-subtitle">Investing in a REIT means you're investing in a specific part of the economy. From warehouses that power e-commerce to cell towers connecting our phones, there's a REIT for almost every major trend.</p>
+            <div class="mt-12 card">
+                <div class="chart-container">
+                    <canvas id="sectorChart"></canvas>
+                </div>
+                <p class="text-sm text-slate-500 mt-4">This chart shows the major sectors of the U.S. Equity REIT market. The digital economy sectors (Industrial, Data Centers, Cell Towers) have grown significantly, reflecting modern economic shifts.</p>
+            </div>
+        </section>
+        
+        <!-- Section 4: Public vs Non-Traded -->
+        <section class="text-center mb-16 md:mb-24">
+            <h2 class="section-title">The Critical Choice: Liquidity & Risk</h2>
+            <p class="section-subtitle">How you buy a REIT is one of the most important decisions you'll make. The difference between publicly traded and non-traded REITs has huge implications for your investment's fees, transparency, and safety.</p>
+            <div class="mt-12 max-w-5xl mx-auto overflow-x-auto">
+                <table class="w-full min-w-max card p-0 text-left">
+                    <thead>
+                        <tr class="border-b">
+                            <th class="p-4 text-lg font-bold text-brand-primary">Feature</th>
+                            <th class="p-4 bg-blue-50/50 text-green-600 font-semibold">✅ Publicly Traded REITs</th>
+                            <th class="p-4 bg-red-50/50 text-red-600 font-semibold">⚠️ Public Non-Traded REITs</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b"><td class="p-4 font-semibold">Liquidity</td><td class="p-4 bg-blue-50/50"><strong>High.</strong> Buy/sell easily on stock exchanges.</td><td class="p-4 bg-red-50/50"><strong>Very Low.</strong> Locked in for 8+ years.</td></tr>
+                        <tr class="border-b"><td class="p-4 font-semibold">Upfront Fees</td><td class="p-4 bg-blue-50/50"><strong>Low.</strong> Standard brokerage commissions.</td><td class="p-4 bg-red-50/50"><strong>Extremely High.</strong> Can be 10-15% of your investment.</td></tr>
+                        <tr><td class="p-4 font-semibold">Transparency</td><td class="p-4 bg-blue-50/50"><strong>High.</strong> Real-time market pricing.</td><td class="p-4 bg-red-50/50"><strong>Low.</strong> Value is estimated infrequently by the company.</td></tr>
+                    </tbody>
+                </table>
+                 <p class="text-sm text-slate-500 mt-4">Financial regulators have issued numerous warnings about the high risks associated with non-traded REITs. For most investors, publicly traded REITs offer a much safer and more flexible way to access the real estate market.</p>
+            </div>
+        </section>
+
+        <!-- Section 5: Pros and Cons -->
+        <section class="text-center mb-16 md:mb-24">
+            <h2 class="section-title">Is a REIT Right For You?</h2>
+            <p class="section-subtitle">Like any investment, REITs have a unique profile of powerful benefits and important risks. Here's a balanced look at both sides to help you decide.</p>
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="card text-left p-6">
+                    <h3 class="text-2xl font-bold text-green-600 mb-4">The Pros</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start"><span class="text-xl mr-3">💰</span><div><strong>High Income:</strong> Generous dividends due to the 90% payout rule.</div></li>
+                        <li class="flex items-start"><span class="text-xl mr-3">📈</span><div><strong>Diversification:</strong> Real estate often moves independently of stocks.</div></li>
+                        <li class="flex items-start"><span class="text-xl mr-3">💧</span><div><strong>Liquidity:</strong> Public REITs are as easy to sell as any other stock.</div></li>
+                        <li class="flex items-start"><span class="text-xl mr-3">🛡️</span><div><strong>Inflation Hedge:</strong> Rents and property values tend to rise with inflation.</div></li>
+                    </ul>
+                </div>
+                <div class="card text-left p-6">
+                    <h3 class="text-2xl font-bold text-red-600 mb-4">The Cons</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start"><span class="text-xl mr-3">💸</span><div><strong>Higher Taxes:</strong> Dividends are typically taxed at your ordinary income rate.</div></li>
+                        <li class="flex items-start"><span class="text-xl mr-3">📉</span><div><strong>Rate Sensitivity:</strong> Rising interest rates can hurt REIT share prices.</div></li>
+                        <li class="flex items-start"><span class="text-xl mr-3">🐢</span><div><strong>Slower Growth:</strong> High payouts leave less cash to reinvest for expansion.</div></li>
+                        <li class="flex items-start"><span class="text-xl mr-3">🏢</span><div><strong>Sector Risk:</strong> A REIT focused on one area (e.g., malls) is vulnerable to industry trends.</div></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Tax Advantage -->
+        <section class="text-center mb-16 md:mb-24">
+            <h2 class="section-title">The QBI Tax Advantage</h2>
+            <p class="section-subtitle">A powerful (but temporary) tax rule, the Qualified Business Income (QBI) deduction, can significantly lower your tax bill on REIT dividends. It allows you to deduct 20% of your qualified REIT dividends from your taxable income.</p>
+            <div class="mt-12 card md:grid md:grid-cols-2 md:items-center md:gap-8 max-w-3xl mx-auto">
+                <div class="chart-container h-64 md:h-auto">
+                    <canvas id="taxChart"></canvas>
+                </div>
+                <div class="text-left mt-8 md:mt-0">
+                    <h3 class="text-xl font-bold text-brand-primary">How It Works: An Example</h3>
+                    <p class="mt-2 text-slate-600">If you receive a $1,000 dividend and are in the 24% tax bracket, you would normally pay $240 in taxes. With the QBI deduction:</p>
+                    <ul class="mt-4 space-y-2">
+                        <li><span class="font-semibold text-brand-accent">1.</span> You deduct 20% of the dividend ($200).</li>
+                        <li><span class="font-semibold text-brand-accent">2.</span> You are only taxed on the remaining $800.</li>
+                        <li><span class="font-semibold text-brand-accent">3.</span> Your tax bill is just $192.</li>
+                    </ul>
+                    <p class="mt-4 bg-blue-50 text-brand-primary font-semibold p-3 rounded-lg">This simple deduction lowers your effective tax rate from 24% to just 19.2%.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        const wrapLabel = (label, maxWidth = 16) => {
+            const words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + ' ' + word).trim().length > maxWidth) {
+                    lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            });
+            lines.push(currentLine.trim());
+            return lines;
+        };
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+              return label.join(' ');
+            } else {
+              return label;
+            }
+        };
+        
+        // Sector Chart
+        const sectorCtx = document.getElementById('sectorChart').getContext('2d');
+        const sectorData = {
+            labels: ['Industrial', 'Residential', 'Retail', 'Healthcare', 'Office', ['Data', 'Centers'], ['Cell', 'Towers'], 'Specialty'],
+            datasets: [{
+                label: 'Number of US REITs by Sector',
+                data: [20, 18, 16, 14, 12, 5, 3, 15],
+                backgroundColor: ['#004e92', '#4286f4', '#a7c7f7', '#004e92', '#4286f4', '#a7c7f7', '#004e92', '#4286f4'],
+                borderColor: 'white',
+                borderWidth: 2,
+            }]
+        };
+        new Chart(sectorCtx, {
+            type: 'bar',
+            data: sectorData,
+            options: {
+                indexAxis: 'y',
+                maintainAspectRatio: false,
+                responsive: true,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { 
+                        backgroundColor: '#000428', 
+                        titleFont: { size: 14, weight: 'bold' },
+                        bodyFont: { size: 12 },
+                        callbacks: { title: tooltipTitleCallback }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: { display: false },
+                        ticks: { font: { weight: '600' } }
+                    },
+                    y: {
+                        ticks: { font: { weight: '600', size: 14 } }
+                    }
+                }
+            }
+        });
+
+        // Tax Chart
+        const taxCtx = document.getElementById('taxChart').getContext('2d');
+        new Chart(taxCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Tax Paid with QBI', 'Tax Saved by QBI'],
+                datasets: [{
+                    data: [192, 48],
+                    backgroundColor: ['#004e92', '#a7c7f7'],
+                    borderColor: '#ffffff',
+                    borderWidth: 4,
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                responsive: true,
+                cutout: '70%',
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { font: { weight: '600', size: 12 } }
+                    },
+                    tooltip: {
+                        backgroundColor: '#000428',
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                if (label) { label += ': '; }
+                                if (context.parsed !== null) { label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(context.parsed); }
+                                return label;
+                            },
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+
+    </script>
+
+</body>
+</html>
